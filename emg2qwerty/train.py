@@ -22,7 +22,6 @@ from emg2qwerty.transforms import Transform
 
 log = logging.getLogger(__name__)
 
-
 @hydra.main(version_base=None, config_path="../config", config_name="base")
 def main(config: DictConfig):
     log.info(f"\nConfig:\n{OmegaConf.to_yaml(config)}")
@@ -122,7 +121,6 @@ def main(config: DictConfig):
         "best_checkpoint": trainer.checkpoint_callback.best_model_path,
     }
     pprint.pprint(results, sort_dicts=False)
-
 
 if __name__ == "__main__":
     OmegaConf.register_new_resolver("cpus_per_task", utils.cpus_per_task)

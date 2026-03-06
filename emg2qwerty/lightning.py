@@ -25,6 +25,7 @@ from emg2qwerty.modules import (
     MultiBandRotationInvariantMLP,
     SpectrogramNorm,
     TDSConvEncoder,
+    CRNNEncoder
 )
 from emg2qwerty.transforms import Transform
 
@@ -235,6 +236,179 @@ class TDSConvCTCModule(pl.LightningModule):
         for i in range(N):
             # Unpad targets (T, N) for batch entry
             target = LabelData.from_labels(targets[: target_lengths[i], i])
+            metrics.update(prediction=predictions[i], target=target)
+
+        self.log(f"{phase}/loss", loss, batch_size=N, sync_dist=True)
+        return loss
+
+    def _epoch_end(self, phase: str) -> None:
+        metrics = self.metrics[f"{phase}_metrics"]
+        self.log_dict(metrics.compute(), sync_dist=True)
+        metrics.reset()
+
+    def training_step(self, *args, **kwargs) -> torch.Tensor:
+        return self._step("train", *args, **kwargs)
+
+    def validation_step(self, *args, **kwargs) -> torch.Tensor:
+        return self._step("val", *args, **kwargs)
+
+    def test_step(self, *args, **kwargs) -> torch.Tensor:
+        return self._step("test", *args, **kwargs)
+
+    def on_train_epoch_end(self) -> None:
+        self._epoch_end("train")
+
+    def on_validation_epoch_end(self) -> None:
+        self._epoch_end("val")
+
+    def on_test_epoch_end(self) -> None:
+        self._epoch_end("test")
+
+    def configure_optimizers(self) -> dict[str, Any]:
+        return utils.instantiate_optimizer_and_scheduler(
+            self.parameters(),
+            optimizer_config=self.hparams.optimizer,
+            lr_scheduler_config=self.hparams.lr_scheduler,
+        )
+
+class CRNNCTCModule(pl.LightningModule):
+    """Lightning module for a CRNN-CTC EMG decoder.
+
+    The pipeline mirrors ``TDSConvCTCModule`` but replaces the TDS conv encoder
+    with a ``CRNNEncoder`` (temporal conv stack + bidirectional GRU).
+
+    Hydra config example
+    --------------------
+    .. code-block:: yaml
+
+        _target_: emg2qwerty.lightning_module.CRNNCTCModule
+        in_features: 32          # freq bins per electrode after STFT
+        mlp_features: [64, 64]
+        conv_channels: [128, 128, 128]
+        kernel_width: 7
+        rnn_hidden: 256
+        rnn_layers: 3
+        dropout: 0.1
+        optimizer:
+          ...
+        lr_scheduler:
+          ...
+        decoder:
+          ...
+    """
+
+    NUM_BANDS: ClassVar[int] = 2
+    ELECTRODE_CHANNELS: ClassVar[int] = 16
+
+    def __init__(
+        self,
+        in_features: int,
+        mlp_features: Sequence[int],
+        conv_channels: Sequence[int],
+        kernel_width: int,
+        rnn_hidden: int,
+        rnn_layers: int,
+        optimizer: DictConfig,
+        lr_scheduler: DictConfig,
+        decoder: DictConfig,
+        dropout: float = 0.1,
+    ) -> None:
+        super().__init__()
+        self.save_hyperparameters()
+
+        mlp_out_features = self.NUM_BANDS * mlp_features[-1]
+
+        # ---- shared front-end (same as TDSConvCTCModule) ------------------
+        self.specnorm = SpectrogramNorm(
+            channels=self.NUM_BANDS * self.ELECTRODE_CHANNELS
+        )
+        self.mlp = MultiBandRotationInvariantMLP(
+            in_features=in_features,
+            mlp_features=mlp_features,
+            num_bands=self.NUM_BANDS,
+        )
+        self.flatten = nn.Flatten(start_dim=2)
+
+        # ---- CRNN encoder -------------------------------------------------
+        self.crnn_encoder = CRNNEncoder(
+            num_features=mlp_out_features,
+            conv_channels=conv_channels,
+            kernel_width=kernel_width,
+            rnn_hidden=rnn_hidden,
+            rnn_layers=rnn_layers,
+            dropout=dropout,
+        )
+        rnn_out = self.crnn_encoder.rnn_out_features
+
+        # ---- CTC head -----------------------------------------------------
+        self.classifier = nn.Sequential(
+            nn.Linear(rnn_out, charset().num_classes),
+            nn.LogSoftmax(dim=-1),
+        )
+
+        # Criterion
+        self.ctc_loss = nn.CTCLoss(blank=charset().null_class)
+
+        # Decoder
+        self.decoder = instantiate(decoder)
+
+        # Metrics
+        metrics = MetricCollection([CharacterErrorRates()])
+        self.metrics = nn.ModuleDict(
+            {
+                f"{phase}_metrics": metrics.clone(prefix=f"{phase}/")
+                for phase in ["train", "val", "test"]
+            }
+        )
+
+    def forward(self, inputs: torch.Tensor) -> torch.Tensor:
+        """
+        Args:
+            inputs: (T, N, bands=2, electrode_channels=16, freq)
+
+        Returns:
+            log_probs: (T', N, num_classes)  where T' == T (no downsampling)
+        """
+        x = self.specnorm(inputs)   # (T, N, 2, 16, freq)
+        x = self.mlp(x)             # (T, N, 2, mlp_features[-1])
+        x = self.flatten(x)         # (T, N, 2*mlp_features[-1])
+        x = self.crnn_encoder(x)    # (T, N, rnn_hidden*2)
+        x = self.classifier(x)      # (T, N, num_classes)
+        return x
+
+    def _step(
+        self, phase: str, batch: dict[str, torch.Tensor], *args, **kwargs
+    ) -> torch.Tensor:
+        inputs = batch["inputs"]
+        targets = batch["targets"]
+        input_lengths = batch["input_lengths"]
+        target_lengths = batch["target_lengths"]
+        N = len(input_lengths)
+
+        emissions = self.forward(inputs)  # (T, N, num_classes)
+
+        # The CRNN encoder has no temporal downsampling; T_diff accounts for
+        # any boundary effects introduced by the conv blocks.
+        T_diff = inputs.shape[0] - emissions.shape[0]
+        emission_lengths = input_lengths - T_diff
+
+        loss = self.ctc_loss(
+            log_probs=emissions,
+            targets=targets.transpose(0, 1),   # (N, T)
+            input_lengths=emission_lengths,
+            target_lengths=target_lengths,
+        )
+
+        predictions = self.decoder.decode_batch(
+            emissions=emissions.detach().cpu().numpy(),
+            emission_lengths=emission_lengths.detach().cpu().numpy(),
+        )
+
+        metrics = self.metrics[f"{phase}_metrics"]
+        targets_np = targets.detach().cpu().numpy()
+        target_lengths_np = target_lengths.detach().cpu().numpy()
+        for i in range(N):
+            target = LabelData.from_labels(targets_np[: target_lengths_np[i], i])
             metrics.update(prediction=predictions[i], target=target)
 
         self.log(f"{phase}/loss", loss, batch_size=N, sync_dist=True)

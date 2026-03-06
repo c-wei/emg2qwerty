@@ -278,3 +278,89 @@ class TDSConvEncoder(nn.Module):
 
     def forward(self, inputs: torch.Tensor) -> torch.Tensor:
         return self.tds_conv_blocks(inputs)  # (T, N, num_features)
+
+
+class CRNNEncoder(nn.Module):
+    """Convolutional feature extractor followed by a bidirectional GRU stack.
+    Input shape:  (T, N, num_features)   [time-major, as used throughout the
+                                           rest of this codebase]
+    Output shape: (T, N, rnn_hidden * 2) [bidirectional → doubled hidden dim]
+    Architecture
+    ------------
+    1. A stack of 1-D temporal conv blocks (Conv1d → BN → ReLU → Dropout),
+       each operating on the feature dimension while preserving the time axis
+       (no striding / pooling so that CTC lengths stay valid).
+    2. A stack of bidirectional GRU layers that capture long-range temporal
+       context.
+    """
+
+    def __init__(
+        self,
+        num_features: int,
+        conv_channels: Sequence[int],
+        kernel_width: int,
+        rnn_hidden: int,
+        rnn_layers: int,
+        dropout: float = 0.1,
+    ) -> None:
+        super().__init__()
+
+        # --- Conv blocks ---------------------------------------------------
+        conv_blocks: list[nn.Module] = []
+        in_ch = num_features
+        for out_ch in conv_channels:
+            padding = (kernel_width - 1) // 2  # "same" padding (causal-ish)
+            conv_blocks += [
+                # Permute to (N, C, T) for Conv1d, then back
+                _TimeConvBlock(in_ch, out_ch, kernel_width, padding, dropout),
+            ]
+            in_ch = out_ch
+        self.conv_blocks = nn.Sequential(*conv_blocks)
+        self.conv_out_features = in_ch  # == conv_channels[-1]
+
+        # --- Bidirectional GRU stack ---------------------------------------
+        self.rnn = nn.GRU(
+            input_size=self.conv_out_features,
+            hidden_size=rnn_hidden,
+            num_layers=rnn_layers,
+            batch_first=False,   # time-major (T, N, H)
+            bidirectional=True,
+            dropout=dropout if rnn_layers > 1 else 0.0,
+        )
+        self.rnn_out_features = rnn_hidden * 2  # bidirectional
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # x: (T, N, num_features)
+        x = self.conv_blocks(x)           # (T, N, conv_channels[-1])
+        x, _ = self.rnn(x)                # (T, N, rnn_hidden*2)
+        return x
+
+
+class _TimeConvBlock(nn.Module):
+    """Single temporal conv block that keeps the (T, N, C) layout."""
+
+    def __init__(
+        self,
+        in_channels: int,
+        out_channels: int,
+        kernel_width: int,
+        padding: int,
+        dropout: float,
+    ) -> None:
+        super().__init__()
+        self.block = nn.Sequential(
+            # Conv1d expects (N, C, T); we'll permute in forward
+            nn.Conv1d(in_channels, out_channels, kernel_width, padding=padding),
+            nn.BatchNorm1d(out_channels),
+            nn.ReLU(inplace=True),
+            nn.Dropout(dropout),
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # x: (T, N, C)
+        T, N, C = x.shape
+        x = x.permute(1, 2, 0)           # (N, C, T)
+        x = self.block(x)                 # (N, C', T)
+        x = x.permute(2, 0, 1)           # (T, N, C')
+        return x
+
