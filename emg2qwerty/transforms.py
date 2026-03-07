@@ -11,6 +11,8 @@ from typing import Any, TypeVar
 import numpy as np
 import torch
 import torchaudio
+import torch.nn.functional as F
+
 
 
 TTransformIn = TypeVar("TTransformIn")
@@ -243,3 +245,86 @@ class SpecAugment:
 
         # (..., C, freq, T) -> (T, ..., C, freq)
         return x.movedim(-1, 0)
+
+
+
+class AddGaussianNoise(object):
+    """Adds Gaussian noise to the EMG signal tensor."""
+    def __init__(self, std=0.01):
+        self.std = std
+
+    def __call__(self, tensor):
+        # Ensure the noise is on the same device (CPU/GPU) as your data
+        noise = torch.randn(tensor.size(), device=tensor.device) * self.std
+        return tensor + noise
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}(std={self.std})"
+
+@dataclass
+class RandomChannelDropout:
+    """Randomly zeros out one electrode channel to improve robustness.
+    Assumes input shape is (T, N, C) or (T, N, B, C, freq).
+    """
+    prob: float = 0.2
+
+    def __call__(self, tensor: torch.Tensor) -> torch.Tensor:
+        if np.random.random() > self.prob:
+            return tensor
+
+        # Clone to avoid modifying original tensor
+        tensor = tensor.clone()
+
+        # Determine channel dimension
+        dim = 2 if tensor.dim() == 3 else 3
+        num_channels = tensor.shape[dim]
+
+        drop_idx = np.random.randint(0, num_channels)
+
+        if dim == 2:
+            tensor[:, :, drop_idx] = 0
+        else:
+            tensor[:, :, :, drop_idx, :] = 0
+
+        return tensor
+
+
+@dataclass
+class RandomTimeStretch:
+    """Randomly speeds up or slows down the EMG signal"""
+    min_rate: float = 0.95
+    max_rate: float = 1.05
+    prob: float = 0.5
+
+    def __call__(self, tensor: torch.Tensor) -> torch.Tensor:
+        if np.random.random() > self.prob:
+            return tensor
+
+        if tensor.dim() != 3:
+            raise ValueError(f"Expected (T, N, C), got {tuple(tensor.shape)}")
+
+        T, N, C = tensor.shape
+        rate = float(np.random.uniform(self.min_rate, self.max_rate))
+        target_T = max(1, int(round(T * rate)))
+
+        # (T, N, C) -> (1, N*C, T)
+        x = tensor.permute(1, 2, 0).reshape(1, N * C, T)
+
+        # interpolate along time
+        x = F.interpolate(x, size=target_T, mode="linear", align_corners=False)
+
+        # (1, N*C, target_T) -> (target_T, N, C)
+        x = x.reshape(N, C, target_T).permute(2, 0, 1)
+
+        # Fix length back to T
+        if target_T > T:
+            start = (target_T - T) // 2
+            x = x[start:start + T]
+        elif target_T < T:
+            pad_total = T - target_T
+            pad_left = pad_total // 2
+            pad_right = pad_total - pad_left
+            # pad time dimension (dim 0) on both sides
+            x = F.pad(x, (0, 0, 0, 0, pad_left, pad_right))
+
+        return x

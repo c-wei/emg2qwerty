@@ -1,0 +1,1668 @@
+best_run_idx: 64
+best_val_cer: 14.466105461120605
+best_hyperparams:
+  module.conv_channels:
+  - 256
+  - 256
+  - 256
+  module.rnn_hidden: 512
+  module.rnn_layers: 2
+  module.dropout: 0.1
+  optimizer.lr: 0.001
+all_results:
+- run_idx: 0
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.9815517067909241
+    val/CER: 31.01462173461914
+    val/IER: 8.79486083984375
+    val/DER: 2.5919361114501953
+    val/SER: 19.627824783325195
+  test_metrics:
+  - test/loss: 1.024100661277771
+    test/CER: 32.569698333740234
+    test/IER: 5.295007705688477
+    test/DER: 3.133780002593994
+    test/SER: 24.140911102294922
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=37-step=4560.ckpt
+- run_idx: 1
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 8.20598316192627
+    val/CER: 100.0
+    val/IER: 100.0
+    val/DER: 0.0
+    val/SER: 0.0
+  test_metrics:
+  - test/loss: 7.025512218475342
+    test/CER: 100.0
+    test/IER: 100.0
+    test/DER: 0.0
+    test/SER: 0.0
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=1-step=240.ckpt
+- run_idx: 2
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 1.1589875221252441
+    val/CER: 35.55604934692383
+    val/IER: 12.029242515563965
+    val/DER: 2.1488702297210693
+    val/SER: 21.3779354095459
+  test_metrics:
+  - test/loss: 1.1687157154083252
+    test/CER: 36.762481689453125
+    test/IER: 7.802031517028809
+    test/DER: 2.9824941158294678
+    test/SER: 25.977954864501953
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800.ckpt
+- run_idx: 3
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 9.925976753234863
+    val/CER: 100.0
+    val/IER: 100.0
+    val/DER: 0.0
+    val/SER: 0.0
+  test_metrics:
+  - test/loss: 8.346150398254395
+    test/CER: 100.0
+    test/IER: 100.0
+    test/DER: 0.0
+    test/SER: 0.0
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=1-step=240-v1.ckpt
+- run_idx: 4
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.9982490539550781
+    val/CER: 31.568452835083008
+    val/IER: 7.90872859954834
+    val/DER: 2.702702760696411
+    val/SER: 20.957021713256836
+  test_metrics:
+  - test/loss: 1.0100059509277344
+    test/CER: 33.110008239746094
+    test/IER: 4.171169281005859
+    test/DER: 3.7389237880706787
+    test/SER: 25.199913024902344
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680.ckpt
+- run_idx: 5
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 5.008523464202881
+    val/CER: 100.0
+    val/IER: 100.0
+    val/DER: 0.0
+    val/SER: 0.0
+  test_metrics:
+  - test/loss: 4.599381923675537
+    test/CER: 100.0
+    test/IER: 100.0
+    test/DER: 0.0
+    test/SER: 0.0
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=1-step=240-v2.ckpt
+- run_idx: 6
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 1.1204923391342163
+    val/CER: 34.73637390136719
+    val/IER: 10.190518379211426
+    val/DER: 2.4368631839752197
+    val/SER: 22.108993530273438
+  test_metrics:
+  - test/loss: 1.1342238187789917
+    test/CER: 35.89799118041992
+    test/IER: 5.575967311859131
+    test/DER: 3.1986167430877686
+    test/SER: 27.12340545654297
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v1.ckpt
+- run_idx: 7
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 5.493169784545898
+    val/CER: 100.0
+    val/IER: 100.0
+    val/DER: 0.0
+    val/SER: 0.0
+  test_metrics:
+  - test/loss: 4.991312503814697
+    test/CER: 100.0
+    test/IER: 100.0
+    test/DER: 0.0
+    test/SER: 0.0
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=1-step=240-v3.ckpt
+- run_idx: 8
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.6936114430427551
+    val/CER: 20.713336944580078
+    val/IER: 4.142667293548584
+    val/DER: 2.348249912261963
+    val/SER: 14.222418785095215
+  test_metrics:
+  - test/loss: 0.7212808132171631
+    test/CER: 23.838340759277344
+    test/IER: 3.4579641819000244
+    test/DER: 2.550248622894287
+    test/SER: 17.830127716064453
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v1.ckpt
+- run_idx: 9
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.7731831073760986
+    val/CER: 59.70314407348633
+    val/IER: 46.433319091796875
+    val/DER: 0.3987594246864319
+    val/SER: 12.871068000793457
+  test_metrics:
+  - test/loss: 1.819895625114441
+    test/CER: 58.30992126464844
+    test/IER: 39.76658630371094
+    test/DER: 0.47547006607055664
+    test/SER: 18.06786346435547
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v2.ckpt
+- run_idx: 10
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.8059879541397095
+    val/CER: 25.786441802978516
+    val/IER: 6.490917205810547
+    val/DER: 2.215330123901367
+    val/SER: 17.0801944732666
+  test_metrics:
+  - test/loss: 0.8347571492195129
+    test/CER: 26.993732452392578
+    test/IER: 3.0257186889648438
+    test/DER: 3.349902629852295
+    test/SER: 20.61811065673828
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v2.ckpt
+- run_idx: 11
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 2.2996253967285156
+    val/CER: 92.24634552001953
+    val/IER: 92.0691146850586
+    val/DER: 0.0
+    val/SER: 0.17722640931606293
+  test_metrics:
+  - test/loss: 2.3067739009857178
+    test/CER: 92.04668426513672
+    test/IER: 92.04668426513672
+    test/DER: 0.0
+    test/SER: 0.0
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v3.ckpt
+- run_idx: 12
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.693939208984375
+    val/CER: 22.59636688232422
+    val/IER: 4.120513916015625
+    val/DER: 2.9020824432373047
+    val/SER: 15.573770523071289
+  test_metrics:
+  - test/loss: 1.439645528793335
+    test/CER: 52.020748138427734
+    test/IER: 44.95353317260742
+    test/DER: 0.06483682990074158
+    test/SER: 7.002377510070801
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v4.ckpt
+- run_idx: 13
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.3791404962539673
+    val/CER: 41.426673889160156
+    val/IER: 16.703588485717773
+    val/DER: 2.370403289794922
+    val/SER: 22.352680206298828
+  test_metrics:
+  - test/loss: 1.381882667541504
+    test/CER: 41.517181396484375
+    test/IER: 11.30321979522705
+    test/DER: 2.2476766109466553
+    test/SER: 27.966285705566406
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v3.ckpt
+- run_idx: 14
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.8341654539108276
+    val/CER: 25.52060317993164
+    val/IER: 6.1807708740234375
+    val/DER: 2.5033230781555176
+    val/SER: 16.83650779724121
+  test_metrics:
+  - test/loss: 0.9464080929756165
+    test/CER: 30.732656478881836
+    test/IER: 9.85519790649414
+    test/DER: 1.1886751651763916
+    test/SER: 19.688783645629883
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v4.ckpt
+- run_idx: 15
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.9067052602767944
+    val/CER: 66.23837280273438
+    val/IER: 53.876827239990234
+    val/DER: 0.11076650768518448
+    val/SER: 12.250775337219238
+  test_metrics:
+  - test/loss: 1.9096344709396362
+    test/CER: 64.66393280029297
+    test/IER: 50.07564163208008
+    test/DER: 0.10806138068437576
+    test/SER: 14.480224609375
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v5.ckpt
+- run_idx: 16
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 1.672615647315979
+    val/CER: 49.401859283447266
+    val/IER: 23.039432525634766
+    val/DER: 1.6393442153930664
+    val/SER: 24.72308349609375
+  test_metrics:
+  - test/loss: 1.5753288269042969
+    test/CER: 47.719905853271484
+    test/IER: 15.128593444824219
+    test/DER: 1.7722066640853882
+    test/SER: 30.81910514831543
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=12-step=1560.ckpt
+- run_idx: 17
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.9132092595100403
+    val/CER: 28.732831954956055
+    val/IER: 7.244129180908203
+    val/DER: 2.9685423374176025
+    val/SER: 18.520158767700195
+  test_metrics:
+  - test/loss: 0.9281139373779297
+    test/CER: 29.71687889099121
+    test/IER: 3.5444133281707764
+    test/DER: 4.257618427276611
+    test/SER: 21.91484832763672
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v5.ckpt
+- run_idx: 18
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.6684830188751221
+    val/CER: 21.400089263916016
+    val/IER: 5.028799057006836
+    val/DER: 2.702702760696411
+    val/SER: 13.668586730957031
+  test_metrics:
+  - test/loss: 0.7157929539680481
+    test/CER: 23.989625930786133
+    test/IER: 3.9982709884643555
+    test/DER: 2.550248622894287
+    test/SER: 17.44110679626465
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v6.ckpt
+- run_idx: 19
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.0500825643539429
+    val/CER: 31.834293365478516
+    val/IER: 9.392999649047852
+    val/DER: 2.6140894889831543
+    val/SER: 19.82720375061035
+  test_metrics:
+  - test/loss: 1.0565059185028076
+    test/CER: 32.41841506958008
+    test/IER: 5.035660266876221
+    test/DER: 3.5444133281707764
+    test/SER: 23.838340759277344
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v6.ckpt
+- run_idx: 20
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.5513206124305725
+    val/CER: 16.925121307373047
+    val/IER: 3.5002214908599854
+    val/DER: 2.215330123901367
+    val/SER: 11.209569931030273
+  test_metrics:
+  - test/loss: 2.1802494525909424
+    test/CER: 72.44435119628906
+    test/IER: 70.88826751708984
+    test/DER: 0.0
+    test/SER: 1.5560837984085083
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v7.ckpt
+- run_idx: 21
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.7440955638885498
+    val/CER: 22.662826538085938
+    val/IER: 4.585733413696289
+    val/DER: 2.5254762172698975
+    val/SER: 15.551617622375488
+  test_metrics:
+  - test/loss: 0.7594156265258789
+    test/CER: 24.35703468322754
+    test/IER: 2.809595823287964
+    test/DER: 2.9608817100524902
+    test/SER: 18.586557388305664
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v7.ckpt
+- run_idx: 22
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.5989365577697754
+    val/CER: 18.785999298095703
+    val/IER: 4.120513916015625
+    val/DER: 2.326096534729004
+    val/SER: 12.339388847351074
+  test_metrics:
+  - test/loss: 1.6005487442016602
+    test/CER: 56.1486930847168
+    test/IER: 51.76140213012695
+    test/DER: 0.021612275391817093
+    test/SER: 4.365679740905762
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=37-step=4560-v1.ckpt
+- run_idx: 23
+  hyperparams:
+    module.conv_channels:
+    - 64
+    - 64
+    - 64
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.9091934561729431
+    val/CER: 28.68852424621582
+    val/IER: 6.911829948425293
+    val/DER: 2.680549383163452
+    val/SER: 19.096145629882812
+  test_metrics:
+  - test/loss: 0.9004067778587341
+    test/CER: 29.15496063232422
+    test/IER: 3.3715150356292725
+    test/DER: 3.976658821105957
+    test/SER: 21.806785583496094
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v8.ckpt
+- run_idx: 24
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.9068683385848999
+    val/CER: 29.264511108398438
+    val/IER: 8.839166641235352
+    val/DER: 2.370403289794922
+    val/SER: 18.05493927001953
+  test_metrics:
+  - test/loss: 0.9426406025886536
+    test/CER: 30.624595642089844
+    test/IER: 7.477847576141357
+    test/DER: 2.507024049758911
+    test/SER: 20.63972282409668
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=36-step=4440.ckpt
+- run_idx: 25
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 2.290147066116333
+    val/CER: 82.34381866455078
+    val/IER: 79.8626480102539
+    val/DER: 0.0
+    val/SER: 2.4811697006225586
+  test_metrics:
+  - test/loss: 2.2856812477111816
+    test/CER: 80.70024108886719
+    test/IER: 77.22066497802734
+    test/DER: 0.0
+    test/SER: 3.479576349258423
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v8.ckpt
+- run_idx: 26
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.9177753329277039
+    val/CER: 29.48604393005371
+    val/IER: 7.377048969268799
+    val/DER: 2.769162654876709
+    val/SER: 19.339832305908203
+  test_metrics:
+  - test/loss: 0.94610595703125
+    test/CER: 30.862329483032227
+    test/IER: 4.754700660705566
+    test/DER: 3.2850658893585205
+    test/SER: 22.82256317138672
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=37-step=4560-v2.ckpt
+- run_idx: 27
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 8.336483001708984
+    val/CER: 100.0
+    val/IER: 100.0
+    val/DER: 0.0
+    val/SER: 0.0
+  test_metrics:
+  - test/loss: 7.303658485412598
+    test/CER: 100.0
+    test/IER: 100.0
+    test/DER: 0.0
+    test/SER: 0.0
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=1-step=240-v4.ckpt
+- run_idx: 28
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.8181073665618896
+    val/CER: 25.852901458740234
+    val/IER: 5.316792011260986
+    val/DER: 3.0128488540649414
+    val/SER: 17.52326011657715
+  test_metrics:
+  - test/loss: 0.8366659879684448
+    test/CER: 27.361141204833984
+    test/IER: 3.7821483612060547
+    test/DER: 2.809595823287964
+    test/SER: 20.769397735595703
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v9.ckpt
+- run_idx: 29
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 2.3639512062072754
+    val/CER: 83.49578857421875
+    val/IER: 79.39743041992188
+    val/DER: 0.0
+    val/SER: 4.098360538482666
+  test_metrics:
+  - test/loss: 2.3877177238464355
+    test/CER: 84.158203125
+    test/IER: 80.98119354248047
+    test/DER: 0.0
+    test/SER: 3.17700457572937
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v10.ckpt
+- run_idx: 30
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 1.0749781131744385
+    val/CER: 33.09703063964844
+    val/IER: 10.146211624145508
+    val/DER: 2.4368631839752197
+    val/SER: 20.51395606994629
+  test_metrics:
+  - test/loss: 1.0860849618911743
+    test/CER: 34.23384475708008
+    test/IER: 6.289172172546387
+    test/DER: 3.2850658893585205
+    test/SER: 24.65960693359375
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=37-step=4560-v3.ckpt
+- run_idx: 31
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 2.654773712158203
+    val/CER: 91.38236236572266
+    val/IER: 90.69561004638672
+    val/DER: 0.0
+    val/SER: 0.6867523193359375
+  test_metrics:
+  - test/loss: 2.651897668838501
+    test/CER: 91.72249603271484
+    test/IER: 91.72249603271484
+    test/DER: 0.0
+    test/SER: 0.0
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v11.ckpt
+- run_idx: 32
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.6038378477096558
+    val/CER: 18.49800682067871
+    val/IER: 3.8325209617614746
+    val/DER: 2.259636640548706
+    val/SER: 12.405848503112793
+  test_metrics:
+  - test/loss: 0.6400428414344788
+    test/CER: 20.96390724182129
+    test/IER: 3.630862236022949
+    test/DER: 1.8370434045791626
+    test/SER: 15.496002197265625
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=36-step=4440-v1.ckpt
+- run_idx: 33
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.1748002767562866
+    val/CER: 35.53389358520508
+    val/IER: 11.32033634185791
+    val/DER: 2.835622549057007
+    val/SER: 21.3779354095459
+  test_metrics:
+  - test/loss: 1.1982051134109497
+    test/CER: 36.6976432800293
+    test/IER: 7.3049492835998535
+    test/DER: 3.393127202987671
+    test/SER: 25.99956703186035
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v9.ckpt
+- run_idx: 34
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.6754331588745117
+    val/CER: 20.846256256103516
+    val/IER: 5.16171932220459
+    val/DER: 2.193176746368408
+    val/SER: 13.491360664367676
+  test_metrics:
+  - test/loss: 0.666146993637085
+    test/CER: 21.612276077270508
+    test/IER: 3.047330856323242
+    test/DER: 2.3989624977111816
+    test/SER: 16.165983200073242
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v12.ckpt
+- run_idx: 35
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.4354184865951538
+    val/CER: 43.198936462402344
+    val/IER: 21.466548919677734
+    val/DER: 1.617190957069397
+    val/SER: 20.115196228027344
+  test_metrics:
+  - test/loss: 1.4801528453826904
+    test/CER: 43.202938079833984
+    test/IER: 14.847633361816406
+    test/DER: 2.4421870708465576
+    test/SER: 25.913118362426758
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v13.ckpt
+- run_idx: 36
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.6688446402549744
+    val/CER: 20.890562057495117
+    val/IER: 3.7660610675811768
+    val/DER: 2.9020824432373047
+    val/SER: 14.222418785095215
+  test_metrics:
+  - test/loss: 0.8743600249290466
+    test/CER: 30.149124145507812
+    test/IER: 18.586557388305664
+    test/DER: 0.3457964062690735
+    test/SER: 11.216771125793457
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v10.ckpt
+- run_idx: 37
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.1832425594329834
+    val/CER: 36.287105560302734
+    val/IER: 11.674789428710938
+    val/DER: 2.74700927734375
+    val/SER: 21.86530876159668
+  test_metrics:
+  - test/loss: 1.2000459432601929
+    test/CER: 37.38923645019531
+    test/IER: 7.196887969970703
+    test/DER: 3.2850658893585205
+    test/SER: 26.907283782958984
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v11.ckpt
+- run_idx: 38
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.7684333324432373
+    val/CER: 24.72308349609375
+    val/IER: 6.446610450744629
+    val/DER: 2.5033230781555176
+    val/SER: 15.773150444030762
+  test_metrics:
+  - test/loss: 0.7682594656944275
+    test/CER: 25.156688690185547
+    test/IER: 3.717311382293701
+    test/DER: 2.9608817100524902
+    test/SER: 18.478496551513672
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=35-step=4320.ckpt
+- run_idx: 39
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.6169331073760986
+    val/CER: 49.800621032714844
+    val/IER: 27.78023910522461
+    val/DER: 0.7532122135162354
+    val/SER: 21.267168045043945
+  test_metrics:
+  - test/loss: 1.631884217262268
+    test/CER: 49.686622619628906
+    test/IER: 21.007131576538086
+    test/DER: 1.448022484779358
+    test/SER: 27.231468200683594
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v12.ckpt
+- run_idx: 40
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 1.052176833152771
+    val/CER: 33.09703063964844
+    val/IER: 9.082853317260742
+    val/DER: 2.835622549057007
+    val/SER: 21.178556442260742
+  test_metrics:
+  - test/loss: 0.99009770154953
+    test/CER: 30.624595642089844
+    test/IER: 4.516965866088867
+    test/DER: 3.7389237880706787
+    test/SER: 22.36870574951172
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=17-step=2160.ckpt
+- run_idx: 41
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.7679619193077087
+    val/CER: 23.371732711791992
+    val/IER: 5.560478687286377
+    val/DER: 2.4368631839752197
+    val/SER: 15.374390602111816
+  test_metrics:
+  - test/loss: 0.7948722243309021
+    test/CER: 25.09185218811035
+    test/IER: 3.6956992149353027
+    test/DER: 2.9608817100524902
+    test/SER: 18.435270309448242
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v13.ckpt
+- run_idx: 42
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.5976274013519287
+    val/CER: 18.409393310546875
+    val/IER: 4.120513916015625
+    val/DER: 2.3925564289093018
+    val/SER: 11.896322250366211
+  test_metrics:
+  - test/loss: 0.5946081876754761
+    test/CER: 19.667171478271484
+    test/IER: 2.7015345096588135
+    test/DER: 2.269289016723633
+    test/SER: 14.6963472366333
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v14.ckpt
+- run_idx: 43
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.8898313045501709
+    val/CER: 27.4257869720459
+    val/IER: 5.826318264007568
+    val/DER: 3.145768642425537
+    val/SER: 18.453699111938477
+  test_metrics:
+  - test/loss: 0.9358640909194946
+    test/CER: 29.241409301757812
+    test/IER: 2.7879836559295654
+    test/DER: 4.473741054534912
+    test/SER: 21.979684829711914
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v14.ckpt
+- run_idx: 44
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.5541535019874573
+    val/CER: 17.76694679260254
+    val/IER: 3.699601173400879
+    val/DER: 2.6362428665161133
+    val/SER: 11.431103706359863
+  test_metrics:
+  - test/loss: 0.5911641716957092
+    test/CER: 18.456884384155273
+    test/IER: 6.440458297729492
+    test/DER: 0.7996541857719421
+    test/SER: 11.216771125793457
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v15.ckpt
+- run_idx: 45
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.6857094168663025
+    val/CER: 20.868410110473633
+    val/IER: 4.430660247802734
+    val/DER: 2.6362428665161133
+    val/SER: 13.801506042480469
+  test_metrics:
+  - test/loss: 0.694262683391571
+    test/CER: 22.628053665161133
+    test/IER: 2.377350330352783
+    test/DER: 2.8312082290649414
+    test/SER: 17.41949462890625
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v15.ckpt
+- run_idx: 46
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.586692214012146
+    val/CER: 18.165706634521484
+    val/IER: 4.120513916015625
+    val/DER: 2.0824103355407715
+    val/SER: 11.962782859802246
+  test_metrics:
+  - test/loss: 0.5950133800506592
+    test/CER: 19.342987060546875
+    test/IER: 5.81370210647583
+    test/DER: 1.2102874517440796
+    test/SER: 12.318997383117676
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v16.ckpt
+- run_idx: 47
+  hyperparams:
+    module.conv_channels:
+    - 128
+    - 128
+    - 128
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.8089606165885925
+    val/CER: 25.476295471191406
+    val/IER: 6.291537284851074
+    val/DER: 2.5254762172698975
+    val/SER: 16.659282684326172
+  test_metrics:
+  - test/loss: 0.8024396300315857
+    test/CER: 25.26474952697754
+    test/IER: 2.85282039642334
+    test/DER: 3.5876376628875732
+    test/SER: 18.82429313659668
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v17.ckpt
+- run_idx: 48
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.7942351698875427
+    val/CER: 24.61231803894043
+    val/IER: 6.468763828277588
+    val/DER: 2.6362428665161133
+    val/SER: 15.50731086730957
+  test_metrics:
+  - test/loss: 0.8044079542160034
+    test/CER: 26.086017608642578
+    test/IER: 5.359844207763672
+    test/DER: 2.312513589859009
+    test/SER: 18.413658142089844
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v18.ckpt
+- run_idx: 49
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.8270150423049927
+    val/CER: 61.14311218261719
+    val/IER: 49.468318939208984
+    val/DER: 0.3101462125778198
+    val/SER: 11.364643096923828
+  test_metrics:
+  - test/loss: 1.864928126335144
+    test/CER: 60.98984146118164
+    test/IER: 45.92608642578125
+    test/DER: 0.15128593146800995
+    test/SER: 14.912469863891602
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v16.ckpt
+- run_idx: 50
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.7803646326065063
+    val/CER: 24.523704528808594
+    val/IER: 6.6681437492370605
+    val/DER: 2.171023368835449
+    val/SER: 15.684536933898926
+  test_metrics:
+  - test/loss: 0.7777678370475769
+    test/CER: 25.199913024902344
+    test/IER: 3.7389237880706787
+    test/DER: 2.6583099365234375
+    test/SER: 18.80267906188965
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=37-step=4560-v4.ckpt
+- run_idx: 51
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 128
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 2.38546085357666
+    val/CER: 90.80638122558594
+    val/IER: 89.7430191040039
+    val/DER: 0.0
+    val/SER: 1.0633584260940552
+  test_metrics:
+  - test/loss: 2.3934717178344727
+    test/CER: 91.20380401611328
+    test/IER: 91.20380401611328
+    test/DER: 0.0
+    test/SER: 0.0
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v19.ckpt
+- run_idx: 52
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.7233450412750244
+    val/CER: 21.86530876159668
+    val/IER: 4.7629594802856445
+    val/DER: 2.4811697006225586
+    val/SER: 14.62117862701416
+  test_metrics:
+  - test/loss: 0.7361456155776978
+    test/CER: 23.77350425720215
+    test/IER: 3.4147396087646484
+    test/DER: 2.182839870452881
+    test/SER: 18.17592430114746
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=36-step=4440-v2.ckpt
+- run_idx: 53
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.9491983652114868
+    val/CER: 62.826759338378906
+    val/IER: 49.37970733642578
+    val/DER: 0.2658396065235138
+    val/SER: 13.181214332580566
+  test_metrics:
+  - test/loss: 1.9385379552841187
+    test/CER: 60.946617126464844
+    test/IER: 44.586124420166016
+    test/DER: 0.3241841495037079
+    test/SER: 16.03630828857422
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v20.ckpt
+- run_idx: 54
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.8218925595283508
+    val/CER: 25.299070358276367
+    val/IER: 6.402304172515869
+    val/DER: 2.1045634746551514
+    val/SER: 16.79220199584961
+  test_metrics:
+  - test/loss: 0.8041594624519348
+    test/CER: 25.58893394470215
+    test/IER: 3.9550464153289795
+    test/DER: 2.377350330352783
+    test/SER: 19.25653839111328
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v17.ckpt
+- run_idx: 55
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 128
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 2.51632022857666
+    val/CER: 91.29375457763672
+    val/IER: 90.3411636352539
+    val/DER: 0.0
+    val/SER: 0.9525919556617737
+  test_metrics:
+  - test/loss: 2.5258777141571045
+    test/CER: 91.07412719726562
+    test/IER: 91.07412719726562
+    test/DER: 0.0
+    test/SER: 0.0
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v18.ckpt
+- run_idx: 56
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.5614413619041443
+    val/CER: 17.013734817504883
+    val/IER: 3.8103678226470947
+    val/DER: 1.9937970638275146
+    val/SER: 11.209569931030273
+  test_metrics:
+  - test/loss: 0.5643922090530396
+    test/CER: 18.240760803222656
+    test/IER: 2.8744325637817383
+    test/DER: 1.7938188314437866
+    test/SER: 13.572508811950684
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=36-step=4440-v3.ckpt
+- run_idx: 57
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.0262112617492676
+    val/CER: 31.413379669189453
+    val/IER: 9.415152549743652
+    val/DER: 2.9020824432373047
+    val/SER: 19.096145629882812
+  test_metrics:
+  - test/loss: 1.0509306192398071
+    test/CER: 33.045169830322266
+    test/IER: 7.585908889770508
+    test/DER: 2.939269542694092
+    test/SER: 22.519990921020508
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v21.ckpt
+- run_idx: 58
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.6023739576339722
+    val/CER: 18.896764755249023
+    val/IER: 5.050952434539795
+    val/DER: 1.8387240171432495
+    val/SER: 12.007088661193848
+  test_metrics:
+  - test/loss: 0.6030792593955994
+    test/CER: 19.580720901489258
+    test/IER: 2.7879836559295654
+    test/DER: 1.9883294105529785
+    test/SER: 14.80440902709961
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=37-step=4560-v5.ckpt
+- run_idx: 59
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 256
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.0578378438949585
+    val/CER: 32.29951095581055
+    val/IER: 9.924678802490234
+    val/DER: 2.326096534729004
+    val/SER: 20.048736572265625
+  test_metrics:
+  - test/loss: 1.0956934690475464
+    test/CER: 33.32612991333008
+    test/IER: 5.943376064300537
+    test/DER: 3.479576349258423
+    test/SER: 23.90317726135254
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=36-step=4440-v4.ckpt
+- run_idx: 60
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.5646915435791016
+    val/CER: 17.013734817504883
+    val/IER: 3.699601173400879
+    val/DER: 2.0602569580078125
+    val/SER: 11.253876686096191
+  test_metrics:
+  - test/loss: 0.6076722145080566
+    test/CER: 20.33715057373047
+    test/IER: 6.89431619644165
+    test/DER: 0.5619191527366638
+    test/SER: 12.880916595458984
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v19.ckpt
+- run_idx: 61
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.953968346118927
+    val/CER: 29.79619026184082
+    val/IER: 8.418253898620605
+    val/DER: 2.9685423374176025
+    val/SER: 18.409393310546875
+  test_metrics:
+  - test/loss: 0.9899948239326477
+    test/CER: 31.229738235473633
+    test/IER: 6.35400915145874
+    test/DER: 2.723146677017212
+    test/SER: 22.1525821685791
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=36-step=4440-v5.ckpt
+- run_idx: 62
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.5926511287689209
+    val/CER: 18.298625946044922
+    val/IER: 4.452813625335693
+    val/DER: 1.9716438055038452
+    val/SER: 11.87416934967041
+  test_metrics:
+  - test/loss: 0.6127840280532837
+    test/CER: 20.099416732788086
+    test/IER: 4.149557113647461
+    test/DER: 1.6209206581115723
+    test/SER: 14.328938484191895
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=36-step=4440-v6.ckpt
+- run_idx: 63
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 256
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 1.0029323101043701
+    val/CER: 31.878599166870117
+    val/IER: 9.836065292358398
+    val/DER: 2.303943395614624
+    val/SER: 19.738590240478516
+  test_metrics:
+  - test/loss: 0.9951615929603577
+    test/CER: 31.59714698791504
+    test/IER: 5.143721580505371
+    test/DER: 3.1986167430877686
+    test/SER: 23.25480842590332
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v22.ckpt
+- run_idx: 64
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.4963681101799011
+    val/CER: 14.466105461120605
+    val/IER: 2.8799290657043457
+    val/DER: 2.1045634746551514
+    val/SER: 9.481613159179688
+  test_metrics:
+  - test/loss: 0.5213634967803955
+    test/CER: 17.09531021118164
+    test/IER: 4.992435932159424
+    test/DER: 0.7996541857719421
+    test/SER: 11.30321979522705
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v20.ckpt
+- run_idx: 65
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.7023964524269104
+    val/CER: 21.798847198486328
+    val/IER: 4.984492778778076
+    val/DER: 2.724855899810791
+    val/SER: 14.089499473571777
+  test_metrics:
+  - test/loss: 0.711451530456543
+    test/CER: 22.47676658630371
+    test/IER: 2.9608817100524902
+    test/DER: 2.9608817100524902
+    test/SER: 16.555004119873047
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=36-step=4440-v7.ckpt
+- run_idx: 66
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.547230064868927
+    val/CER: 16.880815505981445
+    val/IER: 4.430660247802734
+    val/DER: 1.9273371696472168
+    val/SER: 10.522817611694336
+  test_metrics:
+  - test/loss: 0.5404183268547058
+    test/CER: 17.765291213989258
+    test/IER: 3.004106283187866
+    test/DER: 1.7289820909500122
+    test/SER: 13.03220272064209
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v23.ckpt
+- run_idx: 67
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 512
+    module.rnn_layers: 2
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.7359204292297363
+    val/CER: 22.95081901550293
+    val/IER: 5.560478687286377
+    val/DER: 2.348249912261963
+    val/SER: 15.042091369628906
+  test_metrics:
+  - test/loss: 0.7497220635414124
+    test/CER: 24.119298934936523
+    test/IER: 2.507024049758911
+    test/DER: 3.393127202987671
+    test/SER: 18.219148635864258
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=37-step=4560-v6.ckpt
+- run_idx: 68
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.5261787176132202
+    val/CER: 15.795303344726562
+    val/IER: 3.1236155033111572
+    val/DER: 2.1488702297210693
+    val/SER: 10.522817611694336
+  test_metrics:
+  - test/loss: 0.7857599258422852
+    test/CER: 24.616382598876953
+    test/IER: 15.668899536132812
+    test/DER: 0.15128593146800995
+    test/SER: 8.796195983886719
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v24.ckpt
+- run_idx: 69
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.1
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.6408153176307678
+    val/CER: 19.428443908691406
+    val/IER: 3.8103678226470947
+    val/DER: 2.4147098064422607
+    val/SER: 13.203367233276367
+  test_metrics:
+  - test/loss: 0.6548087000846863
+    test/CER: 21.56905174255371
+    test/IER: 2.8744325637817383
+    test/DER: 2.7015345096588135
+    test/SER: 15.993083953857422
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v25.ckpt
+- run_idx: 70
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.001
+  val_metrics:
+  - val/loss: 0.5416692495346069
+    val/CER: 17.14665412902832
+    val/IER: 4.297740459442139
+    val/DER: 1.860877275466919
+    val/SER: 10.988037109375
+  test_metrics:
+  - test/loss: 0.6516207456588745
+    test/CER: 20.51004981994629
+    test/IER: 9.077156066894531
+    test/DER: 0.43224552273750305
+    test/SER: 11.000648498535156
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=38-step=4680-v21.ckpt
+- run_idx: 71
+  hyperparams:
+    module.conv_channels:
+    - 256
+    - 256
+    - 256
+    module.rnn_hidden: 512
+    module.rnn_layers: 3
+    module.dropout: 0.3
+    optimizer.lr: 0.0003
+  val_metrics:
+  - val/loss: 0.6682578921318054
+    val/CER: 20.159503936767578
+    val/IER: 4.386353492736816
+    val/DER: 1.9937970638275146
+    val/SER: 13.779353141784668
+  test_metrics:
+  - test/loss: 0.6723864674568176
+    test/CER: 21.482601165771484
+    test/IER: 2.3341257572174072
+    test/DER: 2.593473196029663
+    test/SER: 16.555004119873047
+  best_checkpoint: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=36-step=4440-v8.ckpt

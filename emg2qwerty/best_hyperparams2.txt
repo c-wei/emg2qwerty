@@ -1,0 +1,120 @@
+                 {'run_idx': 66,                                                                                 
+                  'hyperparams': {'module.conv_channels': [256, 256, 256],                                       
+                                  'module.rnn_hidden': 512,                                                      
+                                  'module.rnn_layers': 2,                                                        
+                                  'module.dropout': 0.3,                                                         
+                                  'optimizer.lr': 0.001},                                                        
+                  'val_metrics': [{'val/loss': 0.547230064868927,                                                
+                                   'val/CER': 16.880815505981445,                                                
+                                   'val/IER': 4.430660247802734,                                                 
+                                   'val/DER': 1.9273371696472168,                                                
+                                   'val/SER': 10.522817611694336}],                                              
+                  'test_metrics': [{'test/loss': 0.5404183268547058,                                             
+                                    'test/CER': 17.765291213989258,                                              
+                                    'test/IER': 3.004106283187866,                                               
+                                    'test/DER': 1.7289820909500122,                                              
+                                    'test/SER': 13.03220272064209}],                                             
+                  'best_checkpoint': '/home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints
+/epoch=39-step=4800-v23.ckpt'}, 
+
+Checkpoint file: /home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v23.ckpt
+============================================================
+
+Top-level keys in checkpoint:
+  - epoch
+  - global_step
+  - pytorch-lightning_version
+  - state_dict
+  - loops
+  - callbacks
+  - optimizer_states
+  - lr_schedulers
+  - hparams_name
+  - hyper_parameters
+
+Hyperparameters:
+----------------------------------------
+{ 'conv_channels': [256, 256, 256],
+  'decoder': {'_target_': 'emg2qwerty.decoder.CTCGreedyDecoder'},
+  'dropout': 0.3,
+  'in_features': 528,
+  'kernel_width': 7,
+  'lr_scheduler': {'scheduler': {'_target_': 'pl_bolts.optimizers.lr_scheduler.LinearWarmupCosineAnnealingLR', 'warmup_epochs': 10, 'max_epochs': 40, 'warmup_start_lr': 1e-08, 'eta_min': 1e-06}, 'interval': 'epoch'},
+  'mlp_features': [64, 64],
+  'optimizer': {'_target_': 'torch.optim.Adam', 'lr': 0.001},
+  'rnn_hidden': 512,
+  'rnn_layers': 2}
+
+Model state_dict keys and shapes:
+----------------------------------------
+  specnorm.batch_norm.weight: [32] (32 params)
+  specnorm.batch_norm.bias: [32] (32 params)
+  specnorm.batch_norm.running_mean: [32] (32 params)
+  specnorm.batch_norm.running_var: [32] (32 params)
+  specnorm.batch_norm.num_batches_tracked: [] (1 params)
+  mlp.mlps.0.mlp.0.weight: [64, 528] (33,792 params)
+  mlp.mlps.0.mlp.0.bias: [64] (64 params)
+  mlp.mlps.0.mlp.2.weight: [64, 64] (4,096 params)
+  mlp.mlps.0.mlp.2.bias: [64] (64 params)
+  mlp.mlps.1.mlp.0.weight: [64, 528] (33,792 params)
+  mlp.mlps.1.mlp.0.bias: [64] (64 params)
+  mlp.mlps.1.mlp.2.weight: [64, 64] (4,096 params)
+  mlp.mlps.1.mlp.2.bias: [64] (64 params)
+  crnn_encoder.conv_blocks.0.block.0.weight: [256, 128, 7] (229,376 params)
+  crnn_encoder.conv_blocks.0.block.0.bias: [256] (256 params)
+  crnn_encoder.conv_blocks.0.block.1.weight: [256] (256 params)
+  crnn_encoder.conv_blocks.0.block.1.bias: [256] (256 params)
+  crnn_encoder.conv_blocks.0.block.1.running_mean: [256] (256 params)
+  crnn_encoder.conv_blocks.0.block.1.running_var: [256] (256 params)
+  crnn_encoder.conv_blocks.0.block.1.num_batches_tracked: [] (1 params)
+  crnn_encoder.conv_blocks.1.block.0.weight: [256, 256, 7] (458,752 params)
+  crnn_encoder.conv_blocks.1.block.0.bias: [256] (256 params)
+  crnn_encoder.conv_blocks.1.block.1.weight: [256] (256 params)
+  crnn_encoder.conv_blocks.1.block.1.bias: [256] (256 params)
+  crnn_encoder.conv_blocks.1.block.1.running_mean: [256] (256 params)
+  crnn_encoder.conv_blocks.1.block.1.running_var: [256] (256 params)
+  crnn_encoder.conv_blocks.1.block.1.num_batches_tracked: [] (1 params)
+  crnn_encoder.conv_blocks.2.block.0.weight: [256, 256, 7] (458,752 params)
+  crnn_encoder.conv_blocks.2.block.0.bias: [256] (256 params)
+  crnn_encoder.conv_blocks.2.block.1.weight: [256] (256 params)
+  crnn_encoder.conv_blocks.2.block.1.bias: [256] (256 params)
+  crnn_encoder.conv_blocks.2.block.1.running_mean: [256] (256 params)
+  crnn_encoder.conv_blocks.2.block.1.running_var: [256] (256 params)
+  crnn_encoder.conv_blocks.2.block.1.num_batches_tracked: [] (1 params)
+  crnn_encoder.rnn.weight_ih_l0: [1536, 256] (393,216 params)
+  crnn_encoder.rnn.weight_hh_l0: [1536, 512] (786,432 params)
+  crnn_encoder.rnn.bias_ih_l0: [1536] (1,536 params)
+  crnn_encoder.rnn.bias_hh_l0: [1536] (1,536 params)
+  crnn_encoder.rnn.weight_ih_l0_reverse: [1536, 256] (393,216 params)
+  crnn_encoder.rnn.weight_hh_l0_reverse: [1536, 512] (786,432 params)
+  crnn_encoder.rnn.bias_ih_l0_reverse: [1536] (1,536 params)
+  crnn_encoder.rnn.bias_hh_l0_reverse: [1536] (1,536 params)
+  crnn_encoder.rnn.weight_ih_l1: [1536, 1024] (1,572,864 params)
+  crnn_encoder.rnn.weight_hh_l1: [1536, 512] (786,432 params)
+  crnn_encoder.rnn.bias_ih_l1: [1536] (1,536 params)
+  crnn_encoder.rnn.bias_hh_l1: [1536] (1,536 params)
+  crnn_encoder.rnn.weight_ih_l1_reverse: [1536, 1024] (1,572,864 params)
+  crnn_encoder.rnn.weight_hh_l1_reverse: [1536, 512] (786,432 params)
+  crnn_encoder.rnn.bias_ih_l1_reverse: [1536] (1,536 params)
+  crnn_encoder.rnn.bias_hh_l1_reverse: [1536] (1,536 params)
+  classifier.0.weight: [99, 1024] (101,376 params)
+  classifier.0.bias: [99] (99 params)
+
+Total parameters: 8,418,535
+
+Optimizer states available: Yes
+
+Epoch: 39
+Global step: 4800
+
+Callbacks:
+----------------------------------------
+{ "ModelCheckpoint{'monitor': 'val/CER', 'mode': 'min', 'every_n_train_steps': 0, 'every_n_epochs': 1, 'train_time_interval': None, 'save_on_train_epoch_end': True}": { 'best_k_models': { '/home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v23.ckpt': tensor(16.8808)},
+                                                                                                                                                                         'best_model_path': '/home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v23.ckpt',
+                                                                                                                                                                         'best_model_score': tensor(16.8808),
+                                                                                                                                                                         'current_score': tensor(16.8808),
+                                                                                                                                                                         'dirpath': '/home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints',
+                                                                                                                                                                         'kth_best_model_path': '/home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/epoch=39-step=4800-v23.ckpt',
+                                                                                                                                                                         'kth_value': tensor(16.8808),
+                                                                                                                                                                         'last_model_path': '/home/carolinewei/Documents/emg2qwerty/logs/2026-03-06/14-35-47/checkpoints/last-v66.ckpt',
+                                                                                                                                                                         'monitor': 'val/CER'}}
