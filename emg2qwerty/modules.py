@@ -305,34 +305,32 @@ class CRNNEncoder(nn.Module):
     ) -> None:
         super().__init__()
 
-        # --- Conv blocks ---------------------------------------------------
+        # Conv blocks
         conv_blocks: list[nn.Module] = []
         in_ch = num_features
         for out_ch in conv_channels:
-            padding = (kernel_width - 1) // 2  # "same" padding (causal-ish)
+            padding = (kernel_width - 1) // 2 
             conv_blocks += [
-                # Permute to (N, C, T) for Conv1d, then back
                 _TimeConvBlock(in_ch, out_ch, kernel_width, padding, dropout),
             ]
             in_ch = out_ch
         self.conv_blocks = nn.Sequential(*conv_blocks)
-        self.conv_out_features = in_ch  # == conv_channels[-1]
+        self.conv_out_features = in_ch
 
-        # --- Bidirectional GRU stack ---------------------------------------
+        # Bidirectional GRU
         self.rnn = nn.GRU(
             input_size=self.conv_out_features,
             hidden_size=rnn_hidden,
             num_layers=rnn_layers,
-            batch_first=False,   # time-major (T, N, H)
+            batch_first=False,
             bidirectional=True,
             dropout=dropout if rnn_layers > 1 else 0.0,
         )
-        self.rnn_out_features = rnn_hidden * 2  # bidirectional
+        self.rnn_out_features = rnn_hidden * 2
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        # x: (T, N, num_features)
-        x = self.conv_blocks(x)           # (T, N, conv_channels[-1])
-        x, _ = self.rnn(x)                # (T, N, rnn_hidden*2)
+        x = self.conv_blocks(x)
+        x, _ = self.rnn(x)     
         return x
 
 
@@ -349,7 +347,6 @@ class _TimeConvBlock(nn.Module):
     ) -> None:
         super().__init__()
         self.block = nn.Sequential(
-            # Conv1d expects (N, C, T); we'll permute in forward
             nn.Conv1d(in_channels, out_channels, kernel_width, padding=padding),
             nn.BatchNorm1d(out_channels),
             nn.ReLU(inplace=True),
@@ -357,10 +354,9 @@ class _TimeConvBlock(nn.Module):
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        # x: (T, N, C)
         T, N, C = x.shape
-        x = x.permute(1, 2, 0)           # (N, C, T)
-        x = self.block(x)                 # (N, C', T)
-        x = x.permute(2, 0, 1)           # (T, N, C')
+        x = x.permute(1, 2, 0)
+        x = self.block(x)     
+        x = x.permute(2, 0, 1)
         return x
 

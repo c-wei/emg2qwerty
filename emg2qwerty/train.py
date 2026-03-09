@@ -91,7 +91,6 @@ def main(config: DictConfig):
         _convert_="object",
     )
 
-    # Instantiate callbacks
     callback_configs = config.get("callbacks", [])
 
     combinations = _expand_grid(GRID)
@@ -110,13 +109,10 @@ def main(config: DictConfig):
             f"{'='*60}"
         )
 
-        # Apply overrides for this combination
         run_config = _apply_overrides(config, combo)
 
-        # Seed per run for reproducibility (incorporates run index)
         pl.seed_everything(config.seed + idx, workers=True)
 
-        # Instantiate module with overridden config
         module = instantiate(
             run_config.module,
             optimizer=run_config.optimizer,
@@ -127,7 +123,6 @@ def main(config: DictConfig):
 
         callbacks = [instantiate(cfg) for cfg in callback_configs]
 
-        # Each run gets its own sub-directory for checkpoints / logs
         run_dir = Path.cwd() / "grid_search" / f"run_{idx:04d}"
         run_dir.mkdir(parents=True, exist_ok=True)
 
@@ -157,7 +152,6 @@ def main(config: DictConfig):
         }
         all_results.append(run_result)
 
-        # Track best run by validation CER (lower is better)
         val_cer = _extract_cer(val_metrics)
         if val_cer is not None and val_cer < best_val_cer:
             best_val_cer = val_cer
@@ -178,7 +172,6 @@ def main(config: DictConfig):
     log.info("\n\n=== Grid Search Complete ===")
     pprint.pprint(summary, sort_dicts=False)
 
-    # Persist results as YAML next to the Hydra output directory
     results_path = Path.cwd() / "grid_search_results.yaml"
     OmegaConf.save(OmegaConf.create(summary), results_path)
     log.info(f"Results saved to {results_path}")

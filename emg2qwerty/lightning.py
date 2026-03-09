@@ -318,7 +318,7 @@ class CRNNCTCModule(pl.LightningModule):
 
         mlp_out_features = self.NUM_BANDS * mlp_features[-1]
 
-        # ---- shared front-end (same as TDSConvCTCModule) ------------------
+        # same as TDSConvCTCModule
         self.specnorm = SpectrogramNorm(
             channels=self.NUM_BANDS * self.ELECTRODE_CHANNELS
         )
@@ -329,7 +329,6 @@ class CRNNCTCModule(pl.LightningModule):
         )
         self.flatten = nn.Flatten(start_dim=2)
 
-        # ---- CRNN encoder -------------------------------------------------
         self.crnn_encoder = CRNNEncoder(
             num_features=mlp_out_features,
             conv_channels=conv_channels,
@@ -340,13 +339,12 @@ class CRNNCTCModule(pl.LightningModule):
         )
         rnn_out = self.crnn_encoder.rnn_out_features
 
-        # ---- CTC head -----------------------------------------------------
+        # CTC head
         self.classifier = nn.Sequential(
             nn.Linear(rnn_out, charset().num_classes),
             nn.LogSoftmax(dim=-1),
         )
 
-        # Criterion
         self.ctc_loss = nn.CTCLoss(blank=charset().null_class)
 
         # Decoder
@@ -369,11 +367,11 @@ class CRNNCTCModule(pl.LightningModule):
         Returns:
             log_probs: (T', N, num_classes)  where T' == T (no downsampling)
         """
-        x = self.specnorm(inputs)   # (T, N, 2, 16, freq)
-        x = self.mlp(x)             # (T, N, 2, mlp_features[-1])
-        x = self.flatten(x)         # (T, N, 2*mlp_features[-1])
-        x = self.crnn_encoder(x)    # (T, N, rnn_hidden*2)
-        x = self.classifier(x)      # (T, N, num_classes)
+        x = self.specnorm(inputs)
+        x = self.mlp(x)          
+        x = self.flatten(x)      
+        x = self.crnn_encoder(x) 
+        x = self.classifier(x)   
         return x
 
     def _step(
@@ -385,16 +383,14 @@ class CRNNCTCModule(pl.LightningModule):
         target_lengths = batch["target_lengths"]
         N = len(input_lengths)
 
-        emissions = self.forward(inputs)  # (T, N, num_classes)
+        emissions = self.forward(inputs) 
 
-        # The CRNN encoder has no temporal downsampling; T_diff accounts for
-        # any boundary effects introduced by the conv blocks.
         T_diff = inputs.shape[0] - emissions.shape[0]
         emission_lengths = input_lengths - T_diff
 
         loss = self.ctc_loss(
             log_probs=emissions,
-            targets=targets.transpose(0, 1),   # (N, T)
+            targets=targets.transpose(0, 1),
             input_lengths=emission_lengths,
             target_lengths=target_lengths,
         )
